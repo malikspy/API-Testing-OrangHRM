@@ -1,0 +1,1534 @@
+{
+	"info": {
+		"_postman_id": "baffcb58-c253-4260-ab31-11aa6979c985",
+		"name": "CIlsy OrangeHRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Get_Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						},
+						"description": "get User Admin OrangeHRM"
+					},
+					"response": []
+				},
+				{
+					"name": "User_Login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "url",
+								"value": "{{url}}",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "Admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "s3Kol4HQA!*",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/login?username=Admin&password=s3Kol4HQA!*",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Admin"
+								},
+								{
+									"key": "password",
+									"value": "s3Kol4HQA!*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Organization_Information",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/organization",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"organization"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attendance",
+			"item": [
+				{
+					"name": "Punchin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"${id}\",\n    \"timezone\":null,\n    \"note\":\"coba mukti\",\n    \"datetime\":\"2021-05-23 7:55\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/punch-in",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"punch-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PunchOut",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"3\",\n    \"timezone\":null,\n    \"note\":\"punchOut\",\n    \"datetime\":\"2021-05-21 7:55\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/punch-out",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"punch-out"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee",
+			"item": [
+				{
+					"name": "Save_Employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"vin0\",\n    \"middleName\":\"g.\",\n    \"lastName\":\"bastiann\",\n    \"code\":\"{{code}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_Employee_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"1563\",\n    \"firstName\":\"Mukti\",\n    \"middleName\":\"QA\",\n    \"lastName\":\"Malik\",\n    \"code\":\"{{code}}\",\n    \"dob\":\"1997-5-10\",\n    \"lisenceNumber\":\"M12345\",\n    \"lisenceNumberExpDate\":\"2022-06-19\",\n    \"maritalStatus\":\"Single\",\n    \"gender\":\"M\",\n    \"otherId\":null,\n    \"nationality\":null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Terminated_Employment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"date\":\"2015-10-25\",\n    \"reason\":null,\n    \"note\":\"Resigned\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}}/action/terminate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}}",
+								"action",
+								"terminate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee_search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/search",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee_Contact_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/contact-detail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"contact-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save_Employee_Contact_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"addressStreet1\":null,\n    \"addressStreet2\":null,\n    \"city\":\"Bogor\",\n    \"state\":\"indonesia\",\n    \"zip\":null,\n    \"country\":null,\n    \"homeTelephone\":\"08567025646\",\n    \"mobile\":\"088827352524\",\n    \"workTelephone\":\"085234563762\",\n    \"workEmail\":\"{{workEmail}}\",\n    \"otherEmail\":\"{{anotherEmail}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/contact-detail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"contact-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_employee_Contact_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"addressStreet1\":null,\n    \"addressStreet2\":null,\n    \"city\":\"Bogor\",\n    \"state\":\"indonesia\",\n    \"zip\":null,\n    \"country\":null,\n    \"homeTelephone\":\"08567025646\",\n    \"mobile\":\"088827352524\",\n    \"workTelephone\":\"085234563762\",\n    \"workEmail\":\"coba@gmail.com\",\n    \"otherEmail\":\"{{anotherEmail}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/contact-detail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"contact-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee_Dependents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/dependent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"dependent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Employee_Dependents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"{{id}}\",\n    \"sequenceNumber\": \"3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/dependent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"dependent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_employee_Dependent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"name\":\"malikuy\",\n    \"relationship\":\"child\",\n    \"dob\":\"2008-05-13\",\n    \"sequenceNumber\":\"3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/dependent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"dependent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save_Employee_Dependents",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"name\":\"malikQA\",\n    \"relationship\":\"child\",\n    \"dob\":\"1997-06-24\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/dependent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"dependent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee_JobDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/job-detail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"job-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save_Employee_Job_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n\t\"title\":null,\n\t\"category\":null,\n\t\"status\":null,\n\t\"subunit\":null,\n\t\"location\":null,\n\t\"joinedDate\":\"2021-01-18\",\n\t\"startDate\":\"2021-02-18\",\n\t\"endDate\":\"2021-05-29\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/job-detail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"job-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Employee_Job_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\".\n\t\"title\":null,\n\t\"category\":null,\n\t\"status\":null,\n\t\"subunit\":null,\n\t\"location\":null,\n\t\"joinedDate\":\"2021-01-15\",\n\t\"startDate\":\"2021-02-25\",\n\t\"endDate\":\"2021-05-27\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/job-detail",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"job-detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Supervisior_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/supervisor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"supervisor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save_supervisiorDetail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n\t\"supervisorId\":\"1\",\n\t\"reportingMethod\":\"Direct\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/supervisor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"supervisor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Supervisior_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"supervisorId\":\"1\",\n    \"reportingMethod\":\"Direct\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/supervisor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"supervisor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_supervisior_Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"supervisorId\":\"1\",\n    \"reportingMethod\":\"Direct\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/supervisor",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"supervisor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get_employee_events",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"employeeId\": \"{{id}}\",\n    \"fromDate\": \"2021-01-18\",\n    \"toDate\": \"2021-02-18\",\n    \"event\": \"SAVE\",\n    \"type\": \"employee\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/event",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"event"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee_WorkExp",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/work-experience",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"work-experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save_EmployeeWorkExp",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n\t\"company\":\"cilsy\",\n\t\"title\":\"QA Heroku\",\n\t\"fromDate\":\"2021-01-18\",\n\t\"toDate\":\"2021-05-29\",\n\t\"comment\":null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/work-experience",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"work-experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_EmployeeWorkExp",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"seqId\":\"3\",\n    \"company\":\"cilsy\",\n    \"title\":\"QA\",\n    \"fromDate\":\"2021-01-15\",\n    \"toDate\":\"2021-06-16\",\n    \"comment\":null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/work-experience",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"work-experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_EmployeeWorkExp",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"seqId\":\"3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/work-experience",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"work-experience"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee_Education",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/education",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save_Employee_Education",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"level\":\"2\",\n    \"seqId\":\"1\",\n    \"institute\":\"cilsy\",\n    \"startDate\":\"2021-1-18\",\n    \"endDate\":\"2021-5-16\",\n    \"specialization\":\"QA\",\n    \"year\":\"2021\",\n    \"gpa\":\"80\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/education",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Employee_education",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"level\":\"2\",\n    \"seqId\":\"{{seqId}}\",\n    \"institute\":\"cilsyku\",\n    \"startDate\":\"2021-1-18\",\n    \"endDate\":\"2021-6-18\",\n    \"specialization\":\"QA\",\n    \"year\":\"2021\",\n    \"gpa\":\"85\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/education",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_employeeEducation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\":\"{{id}}\",\n  \"seqId\":\"{{seqId}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/education",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"education"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Employee_Custom_Field",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/custom-field",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"custom-field"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save_Employee_Custom_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"fieldId\":\"1\",\n    \"value\":\"QA malik\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/custom-field",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"custom-field"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Employee_Custom_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"fieldId\":\"1\",\n    \"value\":\"80\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/custom-field",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"custom-field"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_Employee_Custom_Detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"{{id}}\",\n    \"fieldId\":\"1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/employee/{{id}}/custom-field",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"employee",
+								"{{id}}",
+								"custom-field"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Custom_field",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/custom-field",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"custom-field"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Outh_Token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "url",
+						"value": "{{url}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "malik",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "maliku",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/oauth/issueToken",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth",
+						"issueToken"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
